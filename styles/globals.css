@@ -1,0 +1,272 @@
+@import url("https://fonts.cdnfonts.com/css/mona-sans-2");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-gradient: linear-gradient(135deg, rgba(9, 121, 119, 1) 34%, rgba(255, 0, 178, 1) 100%);
+  --brand-gradient-hover: linear-gradient(135deg, rgba(7, 97, 95, 1) 34%, rgba(204, 0, 142, 1) 100%);
+  --new-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  --accent-teal: 170 100% 40%;
+  --accent-pink: 340 100% 50%;
+  --font-mona-sans: "Mona Sans", sans-serif;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient-rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+.brand-gradient {
+  background: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+  animation: gradient-rotation 5s linear infinite;
+}
+
+.brand-gradient-text {
+  background: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-rotation 5s linear infinite;
+}
+
+.nav-link {
+  @apply text-sm font-medium;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-rotation 3s linear infinite;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+}
+
+.heart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.heart-icon svg {
+  fill: transparent;
+  stroke: url(#gradient);
+  stroke-width: 2;
+  transition: fill 0.3s ease;
+}
+
+.heart-icon:hover svg {
+  fill: url(#gradient);
+  stroke: var(--brand-gradient);
+}
+
+.heart-icon.heart-hover svg {
+  fill: url(#gradient);
+  stroke: white;
+}
+
+.heart-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'%3E%3C/path%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.heart-icon:hover::before {
+  opacity: 1;
+  animation: gradient-rotation 3s linear infinite;
+}
+.heart-icon.heart-hover::before {
+  opacity: 1;
+  animation: gradient-rotation 3s linear infinite;
+}
+
+.button-hover-gradient {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.button-hover-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(var(--gradient-angle), hsl(var(--accent-teal)), hsl(var(--accent-pink)));
+  z-index: -1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: scale(1);
+}
+
+.button-hover-gradient:hover::before {
+  opacity: 0.8;
+  border-radius: inherit;
+  animation: gradient-rotation 2s linear infinite;
+}
+
+.button-hover-gradient:hover {
+  color: white;
+  opacity: 1;
+  animation: gradient-rotation 2s linear infinite;
+}
+
+.footer-gradient {
+  background: linear-gradient(var(--gradient-angle), hsla(var(--accent-teal) / 0.75), hsla(var(--accent-pink) / 0.75));
+  animation: gradient-rotation 5s linear infinite;
+}
+
+@keyframes move-gradient {
+  0% {
+    --gradient-x: 0%;
+    --gradient-y: 0%;
+  }
+  25% {
+    --gradient-x: 100%;
+    --gradient-y: 0%;
+  }
+  50% {
+    --gradient-x: 100%;
+    --gradient-y: 100%;
+  }
+  75% {
+    --gradient-x: 0%;
+    --gradient-y: 100%;
+  }
+  100% {
+    --gradient-x: 0%;
+    --gradient-y: 0%;
+  }
+}
+
+.golden-rectangle-button {
+  width: 209.44px; /* 80% of original width */
+  height: 129.44px; /* 80% of original height */
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  padding: 0.25rem;
+  opacity: 0.85;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse-grow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-grow {
+  animation: pulse-grow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.golden-rectangle-button:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+html,
+body {
+  font-family: var(--font-mona-sans);
+  font-weight: 200;
+  font-stretch: 100%;
+}
+
+*,
+*::before,
+*::after {
+  font-weight: inherit;
+  font-stretch: inherit;
+}
+
+.font-cursive {
+  font-family: var(--font-dancing-script);
+}
+
+/* Add these new styles for Calendly */
+.calendly-popup-content {
+  position: relative !important;
+}
+
+#calendly-close-button {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  font-size: 24px !important;
+  background: none !important;
+  border: none !important;
+  color: #333 !important;
+  cursor: pointer !important;
+  z-index: 10000 !important;
+}
+

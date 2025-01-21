@@ -1,0 +1,24 @@
+.creator-card img {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.creator-card:hover img {
+  opacity: 1;
+}
+
+.creator-stats {
+  font-family: "Mona Sans", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.creator-card:hover .creator-stats {
+  transform: scale(1.05);
+}
+
+.creator-stats p {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
