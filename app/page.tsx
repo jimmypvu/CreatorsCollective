@@ -50,6 +50,16 @@ export default function LandingPage() {
     autoplaySpeed: 5000,
     adaptiveHeight: false,
     fade: true,
+    lazyLoad: 'progressive' as const,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          fade: false,
+        }
+      }
+    ]
   }
 
   return (
@@ -189,6 +199,8 @@ export default function LandingPage() {
                             fill
                             className="rounded-lg object-cover"
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            loading="lazy"
+                            priority={slideIndex === 0 && imageIndex === 0}
                           />
                         </div>
                       ))}

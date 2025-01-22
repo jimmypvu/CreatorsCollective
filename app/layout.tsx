@@ -1,12 +1,18 @@
 import "@/styles/globals.css"
 import { Dancing_Script } from "next/font/google"
 import Script from "next/script"
+import { Metadata } from "next"
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-dancing-script",
 })
+
+export const metadata: Metadata = {
+  title: "MuseBoost Collective",
+  description: "Empowering creators to reach their full potential",
+}
 
 export default function RootLayout({
   children,
@@ -15,31 +21,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${dancingScript.variable}`}>
-      <head>
-        <title>MuseBoost Collective</title>
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="beforeInteractive" />
-      </head>
       <body className={`min-h-screen bg-black text-white flex flex-col`}>
         {children}
-        <Script id="calendly-widget" strategy="afterInteractive">
+        <Script 
+          src="https://assets.calendly.com/assets/external/widget.js" 
+          strategy="lazyOnload"
+        />
+        <Script
+          id="calendly-widget"
+          strategy="lazyOnload"
+        >
           {`
-            window.onload = function() {
-              Calendly.initBadgeWidget({
-                url: 'https://calendly.com/consultation-museboostcollective',
-                text: 'Get your free Consultation',
-                color: '#0069ff',
-                textColor: '#ffffff',
-                branding: false
-              });
-            }
+            Calendly.initBadgeWidget({
+              url: 'https://calendly.com/consultation-museboostcollective',
+              text: 'Get your free Consultation',
+              color: '#0069ff',
+              textColor: '#ffffff',
+              branding: true
+            });
           `}
         </Script>
+        <link 
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+          precedence="default"
+        />
       </body>
     </html>
   )
 }
-
-
-
-import './globals.css'
