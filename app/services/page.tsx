@@ -175,12 +175,12 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <Dialog key={index}>
       <DialogTrigger asChild>
-        <div className="bg-gray-900/20 border border-white rounded-lg p-6 hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer relative">
+        <div className="justify-center bg-gray-900/20 border border-white rounded-lg p-6 hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer relative">
           <a
             href={service.videoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-2 right-2 inline-flex items-center justify-center w-auto h-8 px-2 py-1 text-sm rounded-full bg-white/10 hover:bg-white/20 transition-all duration-500 overflow-hidden group"
+            className="absolute top-2 right-2 inline-flex items-center gap-2 justify-between w-auto h-6 px-2 py-1 text-sm rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-500 overflow-hidden group"
             onClick={(e) => e.stopPropagation()}
             title={`Learn more about ${service.title}`}
           >
@@ -189,7 +189,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
               🤔❓🎬↪️👀
             </span>
           </a>
-          <h2 className="text-xl font-semibold mb-2 text-teal-400">{service.title}</h2>
+          <h2 className="mt-3 text-xl font-semibold mb-2 text-teal-400">{service.title}</h2>
           <p className="text-gray-300">{service.description}</p>
         </div>
       </DialogTrigger>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
             </div>
             <div className="text-center mt-12">
               <Link href="/contact" passHref>
-                <Button className="bg-white text-black hover:bg-gray-200" title="Schedule a free consultation">
+                <Button className="bg-white hover:bg-gray-200 text-gray-900 hover:bg-gradient-to-r hover:from-teal-700 hover:to-pink-700 hover:text-white transition-all duration-300 sm:font-bold" title="Schedule a free consultation">
                   Get a Consultation, 1st one's on us 🥳
                 </Button>
               </Link>

@@ -64,7 +64,7 @@ export default function BlogPage() {
                         day: "numeric",
                       })}
                     </time>
-                    {post.author && <span className="--accent-pink">{post.author}</span>}
+                    {post.author && <span className="font-semibold text-pink-500 text-sm opacity-80">{post.author}</span>}
                   </div>
                   <Link
                     href={`/blog/${post.slug}`}
