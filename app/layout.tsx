@@ -1,4 +1,4 @@
-import "@/styles/globals.css"
+import "../styles/globals.css"
 import { Dancing_Script } from "next/font/google"
 import { Metadata } from "next"
 import { CalendlyWidget } from "@/components/calendly-widget"
@@ -23,7 +23,8 @@ export default function RootLayout({
     <html lang="en" className={`${dancingScript.variable}`}>
       <body className={`min-h-screen bg-black text-white flex flex-col`}>
         {children}
-        <CalendlyWidget className="golden-rectangle-button animate-pulse-grow" />
+        <div id="calendly-widget" />
+        <CalendlyWidget />
       </body>
     </html>
   )
