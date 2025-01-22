@@ -7,7 +7,7 @@ import { DollarSign, UserPlus, Clock, ChevronDown, ChevronUp } from "lucide-reac
 import Image from "next/image"
 import Link from "next/link"
 import "@/styles/creators.css"
-import Button from "@/components/ui/button"
+import { default as Button } from "@/components/ui/button"
 
 const creators = [
   {
@@ -254,4 +254,3 @@ export default function CreatorsPage() {
     </div>
   )
 }
-
