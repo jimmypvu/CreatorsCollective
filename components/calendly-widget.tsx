@@ -18,11 +18,34 @@ export function CalendlyWidget() {
   useEffect(() => {
     if (!isClient) return
 
-    let scriptLoaded = false
-    let linkLoaded = false
+    // Load Calendly CSS
+    const loadCalendlyCSS = () => {
+      if (!document.querySelector('link[href*="calendly"]')) {
+        const link = document.createElement("link")
+        link.href = "https://assets.calendly.com/assets/external/widget.css"
+        link.rel = "stylesheet"
+        document.head.appendChild(link)
+      }
+    }
 
-    const initializeCalendly = () => {
-      if (window.Calendly && scriptLoaded && linkLoaded) {
+    // Load Calendly JS
+    const loadCalendlyJS = () => {
+      return new Promise<void>((resolve) => {
+        if (!document.querySelector('script[src*="calendly"]')) {
+          const script = document.createElement("script")
+          script.src = "https://assets.calendly.com/assets/external/widget.js"
+          script.async = true
+          script.onload = () => resolve()
+          document.body.appendChild(script)
+        } else {
+          resolve()
+        }
+      })
+    }
+
+    // Initialize widget
+    const initWidget = () => {
+      if (window.Calendly) {
         // Remove any existing widget first
         const existingWidget = document.querySelector('.calendly-badge-widget')
         if (existingWidget) {
@@ -32,7 +55,7 @@ export function CalendlyWidget() {
         // Initialize new widget
         window.Calendly.initBadgeWidget({
           url: 'https://calendly.com/consultation-museboostcollective',
-          text: 'Schedule Consultation 🔥',
+          text: 'Schedule Consultation ',
           color: '#ffffff',
           textColor: '#4B5563',
           branding: false
@@ -40,37 +63,19 @@ export function CalendlyWidget() {
       }
     }
 
-    // Load Calendly CSS
-    if (!document.querySelector('link[href*="calendly"]')) {
-      const link = document.createElement("link")
-      link.href = "https://assets.calendly.com/assets/external/widget.css"
-      link.rel = "stylesheet"
-      link.onload = () => {
-        linkLoaded = true
-        initializeCalendly()
+    const initialize = async () => {
+      try {
+        loadCalendlyCSS()
+        await loadCalendlyJS()
+        
+        // Small delay to ensure everything is loaded
+        setTimeout(initWidget, 100)
+      } catch (error) {
+        console.error('Error initializing Calendly:', error)
       }
-      document.head.appendChild(link)
-    } else {
-      linkLoaded = true
     }
 
-    // Load Calendly JS
-    if (!document.querySelector('script[src*="calendly"]')) {
-      const script = document.createElement("script")
-      script.src = "https://assets.calendly.com/assets/external/widget.js"
-      script.async = true
-      script.onload = () => {
-        scriptLoaded = true
-        initializeCalendly()
-      }
-      document.body.appendChild(script)
-    } else {
-      scriptLoaded = true
-    }
-
-    if (scriptLoaded && linkLoaded) {
-      initializeCalendly()
-    }
+    initialize()
 
     return () => {
       const widget = document.querySelector('.calendly-badge-widget')

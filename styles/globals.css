@@ -51,19 +51,22 @@ body {
   animation: gradient-flow 5s ease infinite;
 }
 
-.gradient-button {
-  @apply rounded-lg;
-  background: var(--brand-gradient);
-  background-size: 200% 200%;
-  animation: gradient-flow 5s ease infinite;
-  transition: all 0.3s ease;
+@layer components {
+  .gradient-button {
+    @apply rounded-lg px-4 py-2;
+    background: var(--brand-gradient);
+    background-size: 200% 200%;
+    animation: gradient-flow 5s ease infinite;
+    transition: all 0.3s ease;
+  }
+
+  .gradient-button:hover {
+    background: var(--brand-gradient-hover);
+    transform: translateY(-1px);
+  }
 }
 
-.gradient-button:hover {
-  background: var(--brand-gradient-hover);
-  transform: translateY(-1px);
-}
-
+/* Calendly Widget Styles */
 .calendly-badge-widget {
   right: 20px !important;
   bottom: 20px !important;
@@ -83,6 +86,7 @@ body {
   color: rgb(75, 85, 99) !important;
   font-family: var(--font-mona-sans) !important;
   font-size: 14px !important;
+  font-weight: 500 !important;
 }
 
 .calendly-badge-widget:hover {
