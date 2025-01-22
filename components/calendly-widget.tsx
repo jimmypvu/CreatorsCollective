@@ -1,13 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
-import { createPortal } from "react-dom"
 
-interface CalendlyWidgetProps {
-  className?: string;
-}
-
-export function CalendlyWidget({ className }: CalendlyWidgetProps) {
+export function CalendlyWidget() {
   useEffect(() => {
     // Remove any existing Calendly elements
     const existingWidget = document.querySelector('.calendly-badge-widget')
@@ -28,36 +23,29 @@ export function CalendlyWidget({ className }: CalendlyWidgetProps) {
       const script = document.createElement("script")
       script.src = "https://assets.calendly.com/assets/external/widget.js"
       script.async = true
-      script.onload = () => {
-        window.Calendly?.initBadgeWidget({
-          url: "https://calendly.com/consultation-museboostcollective",
-          text: "Get your free Consultation",
-          color: "#0069ff",
-          textColor: "#ffffff",
-          branding: true,
-        })
-
-        // Add custom class to Calendly button after it's created
-        setTimeout(() => {
-          const calendlyButton = document.querySelector('.calendly-badge-widget')
-          if (calendlyButton && className) {
-            calendlyButton.className += ' ' + className
-          }
-        }, 100)
-      }
       document.body.appendChild(script)
+
+      script.onload = () => {
+        if (window.Calendly) {
+          window.Calendly.initBadgeWidget({
+            url: 'https://calendly.com/consultation-museboostcollective',
+            text: 'Schedule Consultation ',
+            color: '#ffffff',
+            textColor: '#4B5563',
+            branding: false
+          })
+        }
+      }
     }
 
     return () => {
       // Cleanup
-      const script = document.querySelector('script[src*="calendly"]')
-      const link = document.querySelector('link[href*="calendly"]')
       const widget = document.querySelector('.calendly-badge-widget')
-      script?.remove()
-      link?.remove()
-      widget?.remove()
+      if (widget) {
+        widget.remove()
+      }
     }
-  }, [className])
+  }, [])
 
-  return createPortal(null, document.getElementById('calendly-widget') || document.body)
+  return null
 }

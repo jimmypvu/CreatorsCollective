@@ -7,7 +7,7 @@ import { GoogleIcon } from "./icons/google-icon"
 
 export function Footer() {
   return (
-    <footer className="w-full py-6 bg-brand-gradient">
+    <footer className="w-full py-6 footer-gradient">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <div className="text-white/90 space-y-2">
