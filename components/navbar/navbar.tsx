@@ -115,6 +115,17 @@ export function Navbar() {
           </Link>
           <Link
             className={`nav-link relative ${
+              pathname === "/reviews"
+                ? "active brand-gradient-text animate-gradient-rotation after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-white/70"
+                : "text-white"
+            }`}
+            href="/reviews"
+            title="Read Reviews"
+          >
+            Reviews
+          </Link>
+          <Link
+            className={`nav-link relative ${
               activeSection === "reviews"
                 ? "active brand-gradient-text animate-gradient-rotation after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-white/70"
                 : "text-white"
@@ -153,4 +164,3 @@ export function Navbar() {
     </>
   )
 }
-
