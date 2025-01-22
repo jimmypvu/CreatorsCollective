@@ -3,10 +3,10 @@
 import type * as React from "react"
 import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
+import { default as Input } from "@/components/ui/input"
+import { default as Label } from "@/components/ui/label"
+import { default as Button } from "@/components/ui/button"
+import { default as Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
 
 export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
@@ -174,4 +174,3 @@ export function ContactForm({ className }: React.ComponentProps<typeof Card>) {
     </Card>
   )
 }
-
