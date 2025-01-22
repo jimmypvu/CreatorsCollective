@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import { Dancing_Script } from "next/font/google"
-import Script from "next/script"
 import { Metadata } from "next"
+import { CalendlyWidget } from "@/components/calendly-widget"
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -23,24 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${dancingScript.variable}`}>
       <body className={`min-h-screen bg-black text-white flex flex-col`}>
         {children}
-        <Script 
-          src="https://assets.calendly.com/assets/external/widget.js" 
-          strategy="afterInteractive"
-          onLoad={() => {
-            // @ts-ignore
-            window.Calendly?.initBadgeWidget({
-              url: 'https://calendly.com/consultation-museboostcollective',
-              text: 'Get your free Consultation',
-              color: '#0069ff',
-              textColor: '#ffffff',
-              branding: true
-            });
-          }}
-        />
-        <link 
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
+        <CalendlyWidget />
       </body>
     </html>
   )
