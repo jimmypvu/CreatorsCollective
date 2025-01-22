@@ -25,26 +25,21 @@ export default function RootLayout({
         {children}
         <Script 
           src="https://assets.calendly.com/assets/external/widget.js" 
-          strategy="lazyOnload"
-        />
-        <Script
-          id="calendly-widget"
-          strategy="lazyOnload"
-        >
-          {`
-            Calendly.initBadgeWidget({
+          strategy="afterInteractive"
+          onLoad={() => {
+            // @ts-ignore
+            window.Calendly?.initBadgeWidget({
               url: 'https://calendly.com/consultation-museboostcollective',
               text: 'Get your free Consultation',
               color: '#0069ff',
               textColor: '#ffffff',
               branding: true
             });
-          `}
-        </Script>
+          }}
+        />
         <link 
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
-          precedence="default"
         />
       </body>
     </html>
