@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className={`${dancingScript.variable}`}>
       <body className={`min-h-screen bg-black text-white flex flex-col`}>
         {children}
-        <CalendlyWidget />
+        <CalendlyWidget className="golden-rectangle-button animate-pulse-grow" />
       </body>
     </html>
   )

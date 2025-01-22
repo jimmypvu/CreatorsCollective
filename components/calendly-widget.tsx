@@ -3,7 +3,11 @@
 import dynamic from "next/dynamic"
 import { useEffect } from "react"
 
-function CalendlyWidgetInner() {
+interface CalendlyWidgetProps {
+  className?: string;
+}
+
+function CalendlyWidgetInner({ className }: CalendlyWidgetProps) {
   useEffect(() => {
     const loadCalendly = async () => {
       // Load Calendly CSS
@@ -26,6 +30,14 @@ function CalendlyWidgetInner() {
           textColor: "#ffffff",
           branding: true,
         })
+
+        // Add custom class to Calendly button after it's created
+        setTimeout(() => {
+          const calendlyButton = document.querySelector('.calendly-badge-widget')
+          if (calendlyButton && className) {
+            calendlyButton.className += ' ' + className
+          }
+        }, 100)
       }
     }
 
@@ -38,12 +50,12 @@ function CalendlyWidgetInner() {
       script?.remove()
       link?.remove()
     }
-  }, [])
+  }, [className])
 
   return null
 }
 
 // Use dynamic import with ssr: false to avoid hydration issues
-export const CalendlyWidget = dynamic(() => Promise.resolve(CalendlyWidgetInner), {
+export const CalendlyWidget = dynamic<CalendlyWidgetProps>(() => Promise.resolve(CalendlyWidgetInner), {
   ssr: false
 })

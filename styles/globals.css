@@ -200,30 +200,30 @@
   background-color: white;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
+  border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 @keyframes pulse-grow {
-  0%,
-  100% {
+  0% {
     transform: scale(1);
-    opacity: 0.85;
   }
   50% {
-    transform: scale(1.07);
-    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
 .animate-pulse-grow {
-  animation: pulse-grow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-grow 2s ease-in-out infinite;
 }
 
 .golden-rectangle-button:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 105, 255, 0.5);
 }
 
 .sticky-navbar {
@@ -269,4 +269,3 @@ body {
   cursor: pointer !important;
   z-index: 10000 !important;
 }
-
