@@ -8,10 +8,10 @@ import { Heart, Mail, MapPin, Phone, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import Slider from "react-slick"
-import { Footer } from "@/components/footer"
-import { ContactForm } from "@/components/contact-form"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { Footer } from "@/components/footer"
+import { ContactForm } from "@/components/contact-form"
 import { Navbar } from "@/components/navbar/navbar"
 import { YelpIcon } from "@/components/icons/yelp-icon"
 import { GoogleIcon } from "@/components/icons/google-icon"
@@ -186,9 +186,9 @@ export default function LandingPage() {
                           <Image
                             src={image.src || "/placeholder.svg"}
                             alt={image.alt}
-                            layout="fill"
-                            objectFit="cover"
-                            className="rounded-lg"
+                            fill
+                            className="rounded-lg object-cover"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                         </div>
                       ))}
@@ -216,7 +216,6 @@ export default function LandingPage() {
                         width={60}
                         height={60}
                         className="rounded-full mr-4 object-cover w-[60px] h-[60px]"
-                        style={{ objectPosition: "center" }}
                       />
                       <div>
                         <p className="font-semibold">{review.name}</p>
@@ -224,10 +223,6 @@ export default function LandingPage() {
                       </div>
                     </div>
                     <p className="text-lg mb-4 flex-grow">{review.comment}</p>
-                    <video className="w-full rounded-lg mt-auto" controls>
-                      <source src={review.video} type="video/webm" />
-                      Your browser does not support the video tag.
-                    </video>
                   </CardContent>
                 </Card>
               ))}
@@ -284,9 +279,9 @@ export default function LandingPage() {
                 <Image
                   src="/placeholder.svg?height=400&width=600"
                   alt="MuseBoost Collective Team"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
+                  fill
+                  className="rounded-lg object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
             </div>
