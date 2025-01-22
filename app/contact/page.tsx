@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components/contact-form"
-import { CalendlyButton } from "@/components/calendly-button"
+import { default as CalendlyButton } from "@/components/calendly-button"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar/navbar"
 
@@ -25,4 +25,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

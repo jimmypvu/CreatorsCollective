@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { default as Button } from "@/components/ui/button"
 
 export function CalendlyButton() {
   const openCalendly = () => {
@@ -18,3 +18,4 @@ export function CalendlyButton() {
   )
 }
 
+export default CalendlyButton

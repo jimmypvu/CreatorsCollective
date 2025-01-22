@@ -1,18 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { default as Button } from "@/components/ui/button"
 import { Heart, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { Footer } from "@/components/footer"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+import { default as Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Navbar } from "@/components/navbar/navbar"
 
 const services = [
@@ -232,4 +225,3 @@ export default function ServicesPage() {
     </div>
   )
 }
-
