@@ -47,7 +47,7 @@ export default function BlogPage() {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-center mb-12 pb-4 gradient-header">
               Our Blog
             </h1>
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto mt-8">
               {blogPosts.map((post, index) => (
                 <article key={index} className="group relative flex flex-col space-y-2">
                   <h2 className="text-2xl font-bold">
@@ -64,7 +64,7 @@ export default function BlogPage() {
                         day: "numeric",
                       })}
                     </time>
-                    {post.author && <span>{post.author}</span>}
+                    {post.author && <span className="--accent-pink">{post.author}</span>}
                   </div>
                   <Link
                     href={`/blog/${post.slug}`}
