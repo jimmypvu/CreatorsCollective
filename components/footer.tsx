@@ -24,8 +24,8 @@ export function Footer() {
             </div>
             <div className="flex items-center">
               <Mail className="h-6 w-6 text-white/90 mr-2" />
-              <a href="mailto:info@museboostcollective.io" className="text-sm hover:text-white transition-colors">
-                info@museboostcollective.io
+              <a href="mailto:info@museboostcollective.com" className="text-sm hover:text-white transition-colors">
+                info@museboostcollective.com
               </a>
             </div>
           </div>
