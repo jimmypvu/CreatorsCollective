@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import Button from "@/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Heart, Mail, MapPin, Phone, X } from "lucide-react"
 import Link from "next/link"
@@ -336,4 +336,3 @@ export default function LandingPage() {
     </div>
   )
 }
-
