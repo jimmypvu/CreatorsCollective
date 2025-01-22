@@ -206,8 +206,9 @@ export default function LandingPage() {
                                 fill
                                 className="rounded-lg object-cover"
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                loading="lazy"
-                                priority={slideIndex === 0 && imageIndex === 0}
+                                {...(slideIndex === 0 && imageIndex === 0
+                                  ? { priority: true }
+                                  : { loading: "lazy" })}
                               />
                             </div>
                           ))}
