@@ -8,7 +8,14 @@ import { Footer } from "@/components/footer"
 import { default as Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Navbar } from "@/components/navbar/navbar"
 
-const services = [
+interface Service {
+  title: string
+  description: string
+  modalContent: string
+  videoUrl: string
+}
+
+const services: Service[] = [
   {
     title: "Content Strategy",
     description: "Content planning based on algorithmic testing to cater best to your niche and audience",
@@ -164,7 +171,7 @@ Perfect for local creators looking to take their content to the next level witho
   },
 ]
 
-const ServiceCard = ({ service, index }) => {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <Dialog key={index}>
       <DialogTrigger asChild>
