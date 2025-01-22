@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${dancingScript.variable}`}>
-      <body className={`min-h-screen bg-black text-white flex flex-col`}>
+      <body suppressHydrationWarning className={`min-h-screen bg-black text-white flex flex-col`}>
         {children}
         <div id="calendly-widget" />
         <CalendlyWidget />
