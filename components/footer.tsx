@@ -20,7 +20,7 @@ export function Footer() {
             </div>
             <div className="flex items-center">
               <Phone className="h-6 w-6 text-white/90 mr-2" />
-              <p className="text-sm">+1 (555) 123-4567</p>
+              <p className="text-sm">+1 (949) 414-9754</p>
             </div>
             <div className="flex items-center">
               <Mail className="h-6 w-6 text-white/90 mr-2" />
