@@ -80,17 +80,6 @@ export function Navbar() {
           <span className="sr-only">MuseBoost Collective - Content Creators Agency</span>
         </Link>
         <nav className="flex gap-4 sm:gap-6">
-        <Link
-            className={`nav-link relative ${
-              pathname === "/"
-                ? "active brand-gradient-text animate-gradient-rotation after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-white/70"
-                : "text-white"
-            }`}
-            href="/"
-            title="Return to the Home Page"
-          >
-            Home
-          </Link>
           <Link
             className={`nav-link relative ${
               pathname === "/services"
