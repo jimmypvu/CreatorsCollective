@@ -243,8 +243,8 @@ export default function CreatorsPage() {
                 className="bg-white text-black hover:bg-gradient-to-r hover:from-teal-700 hover:to-pink-700 hover:text-white transition-all duration-300"
                 title="Contact us to give your OnlyFans game a lil boost 😈"
               >
-                Give your OF game a
-                <span className="brand-gradient-text font-cursive text-5x1 font-bold"> Boost </span>today 🧃💪⬆️ 
+                Give your OF game the 
+                <span className="brand-gradient-text font-cursive text-5x1 font-bold"> MuseBoost Juice </span> today 🧃💪⬆️ 
               </Button>
             </Link>
           </div>

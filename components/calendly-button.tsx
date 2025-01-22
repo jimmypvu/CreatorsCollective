@@ -12,7 +12,7 @@ export function CalendlyButton() {
   }
 
   return (
-    <Button onClick={openCalendly} className="bg-white text-black hover:bg-gray-200">
+    <Button onClick={openCalendly} className="bg-white text-black hover:bg-gray-200 z-index-1000">
       Schedule Consultation 🔥🔥🔥
     </Button>
   )
