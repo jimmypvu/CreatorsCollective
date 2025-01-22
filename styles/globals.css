@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/mona-sans-2");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -86,8 +88,6 @@
 .font-dancing-script {
   font-family: var(--font-dancing-script);
 }
-
-@import url("https://fonts.cdnfonts.com/css/mona-sans-2");
 
 :root {
   --brand-gradient: linear-gradient(135deg, rgba(9, 121, 119, 1) 34%, rgba(255, 0, 178, 1) 100%);
